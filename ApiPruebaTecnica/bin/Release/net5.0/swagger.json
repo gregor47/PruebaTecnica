@@ -1,0 +1,312 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "ApiPruebaTecnica",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/Usuarios/GetUsuarios": {
+      "get": {
+        "tags": [
+          "Usuarios"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Usuario"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Usuarios/GetRadicadosInternos": {
+      "get": {
+        "tags": [
+          "Usuarios"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RadicadoInterno"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Usuarios/GetRadicadosExternos": {
+      "get": {
+        "tags": [
+          "Usuarios"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RadicadoExterno"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Usuarios/UpdateUsuarios": {
+      "post": {
+        "tags": [
+          "Usuarios"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "UsuarioId",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "PerfilId",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "Email",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "Documento",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "Nombre",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "Pass",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Usuario"
+            }
+          }
+        }
+      }
+    },
+    "/api/Usuarios/CreateUsuarios": {
+      "post": {
+        "tags": [
+          "Usuarios"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "PerfilId",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "Email",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "Documento",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "Nombre",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "Pass",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Usuario"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Usuario": {
+      "type": "object",
+      "properties": {
+        "usuarioId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "perfilId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "fechaCreacion": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "documento": {
+          "type": "string"
+        },
+        "nombre": {
+          "type": "string"
+        },
+        "pass": {
+          "type": "string"
+        },
+        "estado": {
+          "type": "boolean"
+        },
+        "tipoRol": {
+          "type": "string"
+        }
+      }
+    },
+    "RadicadoInterno": {
+      "type": "object",
+      "properties": {
+        "radicadoInternoId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "asunto": {
+          "type": "string"
+        },
+        "adjunto": {
+          "type": "string"
+        },
+        "estado": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "fechaCreacion": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "usuarioCreacion": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "numeroRadicado": {
+          "type": "string"
+        },
+        "emailRemitente": {
+          "type": "string"
+        },
+        "documentoRemitente": {
+          "type": "string"
+        },
+        "nombreRemitente": {
+          "type": "string"
+        },
+        "descripcionEstado": {
+          "type": "string"
+        }
+      }
+    },
+    "RadicadoExterno": {
+      "type": "object",
+      "properties": {
+        "radicadoExternoId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "asunto": {
+          "type": "string"
+        },
+        "adjunto": {
+          "type": "string"
+        },
+        "fechaCreacion": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "usuarioCreacion": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "estado": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "numeroRadicado": {
+          "type": "string"
+        },
+        "emailRemitente": {
+          "type": "string"
+        },
+        "documentoRemitente": {
+          "type": "string"
+        },
+        "nombreRemitente": {
+          "type": "string"
+        },
+        "descripcionEstado": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "basic": {
+      "type": "basic",
+      "description": "Basic Auth Header"
+    }
+  },
+  "security": [
+    {
+      "basic": [ ]
+    }
+  ]
+}

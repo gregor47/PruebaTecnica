@@ -1,0 +1,18 @@
+﻿
+@{ ViewData["Title"] = "NoAutorizado";
+                Layout = "~/Views/Shared/_LayoutLogin.cshtml"; }
+
+<script>
+    $(document).ready(function () {
+        Swal.fire({
+            title: '¡Oops!',
+            text: 'Inicie Sesion.',
+            icon: 'error',
+            confirmButtonText: 'Salir',
+            allowEscapeKey: false,
+            allowOutsideClick: false
+        }).then(() => {
+            window.top.location.replace('@Url.Action("Index","Login")');
+        });
+    });
+</script>

@@ -1,0 +1,68 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model PruebaTecnicaa.Models.PruebaTecnica.Usuario
+<div class="row mt-5">
+    <div class="col-md text-center">
+        <h1>Crear Usuario</h1>
+    </div>
+</div>
+<hr />
+<form method="post" action="@Url.Action("EditarUsuario","Admin")">
+    <input type="hidden" id="id" name="id" value="@Model.UsuarioId" />
+    <div class="row mt-3">
+        <div class="col-md">
+            <label for="Nombre">Nombre</label>
+            <input class="form-control" type="text" placeholder="Nombre" id="Nombre" name="Nombre" value="@Model.Nombre" autocomplete="off" required />
+        </div>
+        <div class="col-md">
+            <label for="Documento">Documento</label>
+            <input class="form-control" type="number" placeholder="Documento" name="Documento" id="Documento" autocomplete="off" value="@Model.Documento" onkeypress="soloNumeros(this)" required />
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md">
+            <label for="Email">Email</label>
+            <input  class="form-control" type="email" placeholder="Email" name="Email" id="Email" value="@Model.Email" autocomplete="off" required />
+        </div>
+        <div class="col-md">
+            <label for="Rol">Rol</label>
+            <select class="form-control" name="Rol" id="Rol" required>
+                <option>Seleccione</option>
+                @foreach (var item in ViewBag.Perfiles)
+                {
+                    if (Model.PerfilId == item.PerfilId)
+                    {
+                        <option value="@item.PerfilId" selected>@item.Descripcion</option>
+                    }
+                    else
+                    {
+                        <option value="@item.PerfilId">@item.Descripcion</option>
+                    }
+                }
+            </select>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-6">
+            <label for="Pass">Contraseña</label>
+            <input class="form-control" type="password" placeholder="Contraseña"  autocomplete="off" name="Pass" id="Pass" required />
+        </div>
+    </div>
+    <div class="row text-center mt-5">
+        <div class="col-md ">
+            <a class="btn btn-danger" href="@Url.Action("Usuarios","Admin")">Atras</a>
+        </div>
+        <div class="col-md ">
+            <input type="submit" class="btn btn-success" value="Guardar" />
+        </div>
+
+    </div>
+</form>

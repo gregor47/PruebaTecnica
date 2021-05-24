@@ -1,0 +1,74 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="row mt-5">
+    <div class="col-md text-center">
+        <h1>Crear Radicado</h1>
+    </div>
+</div>
+<hr />
+
+    @if (ViewBag.Result != null)
+    {
+        <div class="row">
+            <div class="col-md text-center">
+                <div class="alert alert-info">@ViewBag.Result</div>
+            </div>
+        </div>
+    }
+
+    
+    <form method="post" asp-controller="Home" asp-action="CrearRadicado" enctype="multipart/form-data">
+        <div class="row mt-3">
+            <div class="col-md">
+                <label for="Nombre">Nombre Remitente</label>
+                <input class="form-control" type="text" placeholder="Nombre" id="Nombre" autocomplete="off" name="Nombre" required />
+            </div>
+            <div class="col-md">
+                <label for="Documento">Documento Remitente</label>
+                <input class="form-control" type="number" placeholder="Documento" name="Documento" autocomplete="off" id="Documento" onkeypress="soloNumeros(this)" required />
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md">
+                <label for="correo">Email Remitente</label>
+                <input class="form-control" type="email" placeholder="Email" value="" autocomplete="off" name="correo" id="correo" required />
+            </div>
+            <div class="col-md">
+                <label for="Radicado">Tipo de Radicado</label>
+                <select class="form-control" name="Radicado" id="Radicado" required>
+                    <option>Seleccione</option>
+                    <option value="1">Radicado Interno</option>
+                    <option value="2">Radicado Externo</option>
+
+                </select>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-6">
+                <label for="asunto">Asunto</label>
+                <input class="form-control" type="text" placeholder="Asunto" value="" autocomplete="off" name="asunto" id="asunto" required />
+            </div>
+            <div class="col-md-6">
+                <label for="file">Documento Adjunto</label>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="file" name="file" required>
+                    <label class="custom-file-label" id="labelinput" for="validatedCustomFile">Choose file...</label>
+                </div>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-md mt-5">
+                <input type="submit" class="btn btn-success" value="Crear Radicado" />
+            </div>
+        </div>
+    </form>
+    <script>
+        $("#file").change(function () {
+            filename = this.files[0].name
+            console.log(filename);
+            $("#labelinput").text(filename);
+        });
+    </script>

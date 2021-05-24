@@ -1,0 +1,83 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="row mt-5">
+    <div class="col-md text-center">
+        <h1>Consulta de Radicados</h1>
+    </div>
+</div>
+<hr />
+<div class="row mt-3">
+    <div class="col-md">
+        <table class="table table-striped table-bordered table-hover" id="tableRadicados">
+            <thead>
+                <tr>
+                    <th class="text-center">Numero Radicado</th>
+                    <th class="text-center">Tipo de Radicado</th>
+                    <th class="text-center">Asunto</th>
+                    <th class="text-center">Estado</th>
+                    <th class="text-center">Fecha Cargue</th>
+                    <th class="text-center">Gestionar</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in ViewBag.Internas)
+                {
+                <tr>
+                    <td class="text-center">
+                        @item.NumeroRadicado
+                    </td>
+                    <td class="text-center">
+                        Interno
+                    </td>
+                    <td class="text-center">
+                        @item.Asunto
+                    </td>
+                    <td class="text-center">
+                        @item.DescripcionEstado
+                    </td>
+                    <td class="text-center" data-order="@Convert.ToDateTime(item.FechaCreacion).Ticks">
+                        @item.FechaCreacion
+                    </td>
+                    <td class="text-center">
+                        <a class="btn btn-info" href="@Url.Action("Detalle", "Home", new { radicado = item.NumeroRadicado, opc = 1 })">Ver detalles</a>
+                    </td>
+                </tr>
+                }
+                @foreach (var item in ViewBag.Externas)
+                {
+            <tr>
+                <td class="text-center">
+                    @item.NumeroRadicado
+                </td>
+                <td class="text-center">
+                    Externo
+                </td>
+                <td class="text-center">
+                    @item.Asunto
+                </td>
+                <td class="text-center">
+                    @item.DescripcionEstado
+                </td>
+                <td class="text-center" data-order="@Convert.ToDateTime(item.FechaCreacion).Ticks">
+                    @item.FechaCreacion
+                </td>
+                <td class="text-center">
+                    <a class="btn btn-info" href="@Url.Action("Detalle", "Home", new { radicado = item.NumeroRadicado, opc = 2 })">Ver detalles</a>
+                </td>
+            </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#tableRadicados').DataTable({
+            //"scrollX": true
+        });
+    });
+</script>
