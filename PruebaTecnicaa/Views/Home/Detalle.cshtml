@@ -67,7 +67,7 @@ else
         </div>
     </div>
 }
-@if (ViewBag.Rol != "2")
+@if (ViewBag.Rol != "3")
 {
     <form asp-controller="Home" asp-action="Detalle" method="post">
         <div class="row">
@@ -82,7 +82,7 @@ else
             <div class="col-md">
                 <label>Asignar a:</label>
                 <select name="Usuario" class="form-control" required>
-                    <option>Seleccione</option>
+                    <option value="">Seleccione</option>
                     @foreach (var item in ViewBag.Usuarios)
                     {
                         <option value="@item.UsuarioId">@item.Nombre</option>
@@ -128,6 +128,11 @@ else
             </div>
         </div>
     </form>
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">@ViewBag.Error</div>
+    }
+
 }
 
 

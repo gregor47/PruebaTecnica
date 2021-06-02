@@ -1,14 +1,18 @@
+using ApiPruebaTecnica.Modelo;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using PruebaTecnicaa.Data;
 using PruebaTecnicaa.Implements;
 using PruebaTecnicaa.Interfaces;
+using SoapCore;
+using System.ServiceModel;
 
 namespace ApiPruebaTecnica
 {
@@ -30,7 +34,7 @@ namespace ApiPruebaTecnica
             services.AddControllers();
             services.AddTransient<IApiServices, ApiServices>();
             services.AddTransient<ISeguridadServices, SeguridadServices>();
-
+            services.TryAddSingleton<SampleModel, SampleService>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ApiPruebaTecnica", Version = "v1" });
@@ -79,6 +83,8 @@ namespace ApiPruebaTecnica
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseSoapEndpoint<SampleModel>("/Service.asmx", new BasicHttpBinding(), SoapSerializer.XmlSerializer);
 
             app.UseEndpoints(endpoints =>
             {

@@ -294,26 +294,34 @@ namespace PruebaTecnicaa.Controllers
             var idUser = int.Parse(HttpContext.User.FindFirst(c => c.Type == "idUser")?.Value);
             int opc = 0;
             var interno = _context.RadicadoInterno.Where(a => a.NumeroRadicado == Radicado).FirstOrDefault();
-            if(interno != null)
+            try
             {
-                opc = 1;
-                interno.Estado = int.Parse(Estado);
-                _context.Update(interno);
-                InsertInternoDet(interno, int.Parse(Usuario));
-                _context.SaveChanges();
-            }
-            else
-            {
-                var externo = _context.RadicadoExterno.Where(a => a.NumeroRadicado == Radicado).FirstOrDefault();
-                if(externo != null)
+                if (interno != null)
                 {
-                    opc = 2;
-                    externo.Estado = int.Parse(Estado);
-                    _context.Update(externo);
-                    InsertExternoDet(externo, int.Parse(Usuario));
+                    opc = 1;
+                    interno.Estado = int.Parse(Estado);
+                    _context.Update(interno);
+                    InsertInternoDet(interno, int.Parse(Usuario));
                     _context.SaveChanges();
                 }
+                else
+                {
+                    var externo = _context.RadicadoExterno.Where(a => a.NumeroRadicado == Radicado).FirstOrDefault();
+                    if (externo != null)
+                    {
+                        opc = 2;
+                        externo.Estado = int.Parse(Estado);
+                        _context.Update(externo);
+                        InsertExternoDet(externo, int.Parse(Usuario));
+                        _context.SaveChanges();
+                    }
+                }
             }
+            catch (Exception)
+            {
+                ViewBag.Error = "Debe completar los campos";
+            }
+            
             return RedirectToAction("Detalle","Home", new { radicado = Radicado, opc = opc });
         }
     }

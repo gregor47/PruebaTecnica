@@ -80,3 +80,4 @@ C:\Users\Gregory\source\repos\PruebaTecnicaa\PruebaTecnicaa\obj\Release\net5.0\P
 C:\Users\Gregory\source\repos\PruebaTecnicaa\PruebaTecnicaa\obj\Release\net5.0\ref\PruebaTecnicaa.dll
 C:\Users\Gregory\source\repos\PruebaTecnicaa\PruebaTecnicaa\obj\Release\net5.0\PruebaTecnicaa.pdb
 C:\Users\Gregory\source\repos\PruebaTecnicaa\PruebaTecnicaa\obj\Release\net5.0\PruebaTecnicaa.genruntimeconfig.cache
+C:\Users\Gregory\source\repos\PruebaTecnicaa\PruebaTecnicaa\obj\Release\net5.0\Razor\Views\Admin\Auditoria.cshtml.g.cs

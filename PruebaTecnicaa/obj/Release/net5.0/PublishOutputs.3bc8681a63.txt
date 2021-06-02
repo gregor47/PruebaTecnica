@@ -6,6 +6,7 @@ C:\Users\Gregory\source\repos\PruebaTecnicaa\PruebaTecnicaa\obj\Release\net5.0\P
 C:\Users\Gregory\source\repos\PruebaTecnicaa\PruebaTecnicaa\obj\Release\net5.0\PubTmp\Out\wwwroot\CargueArchivos\CI00000001.jpg
 C:\Users\Gregory\source\repos\PruebaTecnicaa\PruebaTecnicaa\obj\Release\net5.0\PubTmp\Out\wwwroot\CargueArchivos\CI00000002.jpg
 C:\Users\Gregory\source\repos\PruebaTecnicaa\PruebaTecnicaa\obj\Release\net5.0\PubTmp\Out\wwwroot\CargueArchivos\CI00000004.jpg
+C:\Users\Gregory\source\repos\PruebaTecnicaa\PruebaTecnicaa\obj\Release\net5.0\PubTmp\Out\wwwroot\CargueArchivos\CI00000007.txt
 C:\Users\Gregory\source\repos\PruebaTecnicaa\PruebaTecnicaa\obj\Release\net5.0\PubTmp\Out\wwwroot\CargueArchivos\CI00000031.txt
 C:\Users\Gregory\source\repos\PruebaTecnicaa\PruebaTecnicaa\obj\Release\net5.0\PubTmp\Out\wwwroot\css\main.css
 C:\Users\Gregory\source\repos\PruebaTecnicaa\PruebaTecnicaa\obj\Release\net5.0\PubTmp\Out\wwwroot\css\mainLogin.css
